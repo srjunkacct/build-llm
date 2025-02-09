@@ -1,7 +1,7 @@
 import unittest
 
-from chapter2.Preprocess import preprocess
-from chapter2.SimpleTokenizerV1 import SimpleTokenizerV1
+from Preprocess import preprocess
+from SimpleTokenizerV1 import SimpleTokenizerV1
 
 
 class MyTestCase(unittest.TestCase):
