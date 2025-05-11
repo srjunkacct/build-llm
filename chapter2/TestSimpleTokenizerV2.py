@@ -3,11 +3,13 @@ import unittest
 
 from Preprocess import preprocess
 from SimpleTokenizerV2 import SimpleTokenizerV2
-
+from pathlib import Path
+import os
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
-        filePath = "/Users/edwardlee/git/build-llm/chapter2/the-verdict.txt"
+        home = str(Path.home())
+        filePath = os.path.join(home, "git", "build-llm", "chapter2", "the-verdict.txt")
         with open(filePath, "r", encoding="utf-8") as file:
             text = file.read()
         preprocessedWords = preprocess(text)
