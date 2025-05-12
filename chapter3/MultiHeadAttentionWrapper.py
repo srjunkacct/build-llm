@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from CausalAttention import CausalAttention
+from chapter3.CausalAttention import CausalAttention
 
 
 class MultiHeadAttentionWrapper(nn.Module):

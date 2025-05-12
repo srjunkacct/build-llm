@@ -206,6 +206,9 @@ cython_debug/
 .idea/modules.xml
 .idea/*.iml
 .idea/modules
+.idea/misc.xml
+.idea/vcs.xml
+.idea/inspectionProfiles
 *.iml
 *.ipr
 
