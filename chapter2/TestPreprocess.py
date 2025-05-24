@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from Preprocess import preprocess
+from chapter2.Preprocess import preprocess
 from pathlib import Path
 import os
 

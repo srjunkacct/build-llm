@@ -1,8 +1,8 @@
 import unittest
 
 
-from Preprocess import preprocess
-from SimpleTokenizerV2 import SimpleTokenizerV2
+from chapter2.Preprocess import preprocess
+from chapter2.SimpleTokenizerV2 import SimpleTokenizerV2
 from pathlib import Path
 import os
 
