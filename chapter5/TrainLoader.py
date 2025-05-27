@@ -2,7 +2,7 @@ import torch
 
 from chapter2.DataLoaderV1 import create_dataloader_v1
 from chapter5.TokenUtilities import GPT_CONFIG_124M
-file_path = "/Users/edwardlee/git/build-llm/chapter2/the-verdict.txt"
+file_path = "./chapter2/the-verdict.txt"
 with open(file_path, "r", encoding="utf-8") as file:
     text_data = file.read()
 

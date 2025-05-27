@@ -1,6 +1,6 @@
 import re
 
-from Preprocess import preprocess
+fromPreprocess import preprocess
 
 
 class SimpleTokenizerV2:
