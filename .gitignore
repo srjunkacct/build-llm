@@ -259,3 +259,4 @@ gpt2/
 # spam data
 chapter6/sms_spam_collection/*
 chapter6/sms_spam_collection.zip
+chapter6/*.csv
