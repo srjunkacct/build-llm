@@ -255,3 +255,7 @@ fabric.properties
 
 # GPT2 data directory
 gpt2/
+
+# spam data
+chapter6/sms_spam_collection/*
+chapter6/sms_spam_collection.zip
