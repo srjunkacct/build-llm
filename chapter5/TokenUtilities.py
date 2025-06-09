@@ -28,16 +28,4 @@ model_configs = {
     "gpt2-xl (1558M)": {"emb_dim": 1600, "n_layers": 48, "n_heads": 25}
 }
 
-torch.manual_seed(123)
-model = GPTModel(GPT_CONFIG_124M)
-model.eval()
-start_context = "Every effort moves you"
-tokenizer = tiktoken.get_encoding("gpt2")
-
-token_ids = generate_text_simple(model=model,
-                                 idx=text_to_token_ids(start_context, tokenizer),
-                                 max_new_tokens=10,
-                                 context_size=GPT_CONFIG_124M["context_length"])
-
-print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
 
