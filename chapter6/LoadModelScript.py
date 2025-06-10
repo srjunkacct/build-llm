@@ -10,7 +10,6 @@ from gpt_download import download_and_load_gpt2
 tokenizer = tiktoken.get_encoding("gpt2")
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-tokenizer = tiktoken.get_encoding("gpt2")
 
 CHOOSE_MODEL = "gpt2-small (124M)"
 INPUT_PROMPT = "Every effort moves"
@@ -18,7 +17,7 @@ INPUT_PROMPT = "Every effort moves"
 BASE_CONFIG = {
     "vocab_size": 50257,
     "context_length": 1024,
-    "drop_rate": 0.0,
+    "drop_rate": 0.1,
     "qkv_bias": True
 }
 
@@ -41,12 +40,12 @@ load_weights_into_gpt(model, params)
 model.eval()
 
 text_1 = "Every effort moves you"
-token_ids = generate( model=model,
-                      idx=text_to_token_ids(text_1, tokenizer),
-                      max_new_tokens=50,
-                      context_size=BASE_CONFIG["context_length"],
-                      top_k=50,
-                      temperature=1.5)
+#token_ids = generate( model=model,
+#                      idx=text_to_token_ids(text_1, tokenizer),
+#                      max_new_tokens=50,
+#                      context_size=BASE_CONFIG["context_length"],
+#                      top_k=50,
+#                      temperature=1.5)
 token_ids = generate_text_simple(model=model,
                                  idx=text_to_token_ids(text_1, tokenizer=tokenizer),
                                  max_new_tokens=15,
@@ -59,12 +58,12 @@ text_2 = (
     " selected to receive $1000 cash or a $2000 award.' "
 )
 
-token_ids = generate( model=model,
-                      idx=text_to_token_ids(text_2, tokenizer),
-                      max_new_tokens=50,
-                      context_size=BASE_CONFIG["context_length"],
-                      top_k=50,
-                      temperature=1.5)
+#token_ids = generate( model=model,
+#                      idx=text_to_token_ids(text_2, tokenizer),
+#                      max_new_tokens=50,
+#                      context_size=BASE_CONFIG["context_length"],
+#                      top_k=50,
+#                      temperature=1.5)
 
 
 token_ids = generate_text_simple(model=model,

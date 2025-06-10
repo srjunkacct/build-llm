@@ -100,7 +100,7 @@ def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=No
         if top_k is not None:
             top_logits, _ = torch.topk(logits, top_k)
             min_val = top_logits[:, -1]
-            logits = torch.where(torch.tensor(logits < min_val), torch.tensor(float('-inf')).to(logits.device), logits)
+            logits = torch.where(logits < min_val, torch.tensor(float('-inf')).to(logits.device), logits)
         if temperature > 0.0:
             logits = logits / temperature
             probs = torch.softmax(logits, dim=-1)

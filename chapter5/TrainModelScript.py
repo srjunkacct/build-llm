@@ -13,7 +13,7 @@ torch.manual_seed(123)
 model = GPTModel(GPT_CONFIG_124M)
 model.to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=0.0004, weight_decay=0.1)
-num_epochs = 200
+num_epochs = 10
 
 file_path = "../chapter2/the-verdict.txt"
 with open(file_path, "r", encoding="utf-8") as file:
@@ -26,15 +26,15 @@ train_data = text_data[:split_idx]
 val_data = text_data[split_idx:]
 train_loader = create_dataloader_v1(train_data,
                                     batch_size=2,
-                                    max_length=GPT_CONFIG_124M["context_length"],
-                                    stride=GPT_CONFIG_124M["context_length"],
+                                    #max_length=GPT_CONFIG_124M["context_length"],
+                                    #stride=GPT_CONFIG_124M["context_length"],
                                     drop_last=True,
                                     shuffle=True,
                                     num_workers=0)
 val_loader = create_dataloader_v1(val_data,
                                   batch_size=2,
-                                  max_length=GPT_CONFIG_124M["context_length"],
-                                  stride=GPT_CONFIG_124M["context_length"],
+                                  #max_length=GPT_CONFIG_124M["context_length"],
+                                  #stride=GPT_CONFIG_124M["context_length"],
                                   drop_last=False,
                                   shuffle=False,
                                   num_workers=0)

@@ -34,33 +34,33 @@ def load_weights_into_gpt(gpt, params):
             params["blocks"][b]["attn"]["c_proj"]["w"].T)
         gpt.trf_blocks[b].att.out_proj.bias = assign(
             gpt.trf_blocks[b].att.out_proj.bias,
-            params["blocks"][b]["attn"]["c_proj"]["b"].T)
+            params["blocks"][b]["attn"]["c_proj"]["b"])
 
         gpt.trf_blocks[b].ff.layers[0].weight = assign(
             gpt.trf_blocks[b].ff.layers[0].weight,
             params["blocks"][b]["mlp"]["c_fc"]["w"].T)
         gpt.trf_blocks[b].ff.layers[0].bias = assign(
             gpt.trf_blocks[b].ff.layers[0].bias,
-            params["blocks"][b]["mlp"]["c_fc"]["b"].T)
+            params["blocks"][b]["mlp"]["c_fc"]["b"])
         gpt.trf_blocks[b].ff.layers[2].weight = assign(
             gpt.trf_blocks[b].ff.layers[2].weight,
             params["blocks"][b]["mlp"]["c_proj"]["w"].T)
         gpt.trf_blocks[b].ff.layers[2].bias = assign(
             gpt.trf_blocks[b].ff.layers[2].bias,
-            params["blocks"][b]["mlp"]["c_proj"]["b"].T)
+            params["blocks"][b]["mlp"]["c_proj"]["b"])
 
         gpt.trf_blocks[b].norm1.scale = assign(
             gpt.trf_blocks[b].norm1.scale,
-            params["blocks"][b]["ln_1"]["g"].T)
+            params["blocks"][b]["ln_1"]["g"])
         gpt.trf_blocks[b].norm1.shift = assign(
-            gpt.trf_blocks[b].norm1.scale,
-            params["blocks"][b]["ln_1"]["g"].T)
+            gpt.trf_blocks[b].norm1.shift,
+            params["blocks"][b]["ln_1"]["b"])
         gpt.trf_blocks[b].norm2.scale = assign(
             gpt.trf_blocks[b].norm2.scale,
-            params["blocks"][b]["ln_2"]["g"].T)
+            params["blocks"][b]["ln_2"]["g"])
         gpt.trf_blocks[b].norm2.shift = assign(
-            gpt.trf_blocks[b].norm2.scale,
-            params["blocks"][b]["ln_2"]["g"].T)
+            gpt.trf_blocks[b].norm2.shift,
+            params["blocks"][b]["ln_2"]["b"])
 
     gpt.final_norm.scale = assign(gpt.final_norm.scale, params["g"])
     gpt.final_norm.shift = assign(gpt.final_norm.shift, params["b"])

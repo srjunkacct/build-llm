@@ -36,7 +36,7 @@ model.to(device)
 torch.manual_seed(123)
 token_ids = generate( model=model,
                       idx=text_to_token_ids("Every effort moves you", tokenizer).to(device),
-                      max_new_tokens=26,
+                      max_new_tokens=25,
                       context_size=BASE_CONFIG["context_length"],
                       top_k=50,
                       temperature=1.5)
